@@ -1,6 +1,6 @@
 import "./_bootstrap";
 import { getSupabaseAdmin } from "../lib/supabase";
-import { getAnthropic, HAIKU } from "../lib/anthropic";
+import { getAnthropic, SONNET } from "../lib/anthropic";
 import { AIRTREE_ALUMNI } from "../lib/config";
 import { sleep } from "../lib/github";
 
@@ -275,7 +275,7 @@ async function extract(
   const anthropic = getAnthropic();
   const content = `SOURCE: ${source}\nTITLE: ${title}\nPUBLISHED: ${pubDate}\n\n${body}`;
   const msg = await anthropic.messages.create({
-    model: HAIKU,
+    model: SONNET,
     max_tokens: 8000,
     system: [{ type: "text", text: system, cache_control: { type: "ephemeral" } }],
     tools: [TOOL],
@@ -358,7 +358,7 @@ async function ingestStartmate(sb: ReturnType<typeof getSupabaseAdmin>): Promise
         thesis_breakdown: c.thesis_breakdown ?? null,
         airtree_overlap: c.airtree_overlap ?? [],
         summary: c.summary || null,
-        scoring_model: HAIKU,
+        scoring_model: SONNET,
         scored_at: new Date().toISOString(),
         raw_extract: c,
       };
@@ -468,7 +468,7 @@ async function ingestYc(sb: ReturnType<typeof getSupabaseAdmin>): Promise<number
         thesis_breakdown: c.thesis_breakdown ?? null,
         airtree_overlap: c.airtree_overlap ?? [],
         summary: c.summary || null,
-        scoring_model: HAIKU,
+        scoring_model: SONNET,
         scored_at: new Date().toISOString(),
         raw_extract: c,
       };
@@ -537,7 +537,7 @@ async function ingestPortfolioPage(
       thesis_breakdown: c.thesis_breakdown ?? null,
       airtree_overlap: c.airtree_overlap ?? [],
       summary: c.summary || null,
-      scoring_model: HAIKU,
+      scoring_model: SONNET,
       scored_at: new Date().toISOString(),
       raw_extract: c,
     };
@@ -667,7 +667,7 @@ async function main() {
           thesis_breakdown: c.thesis_breakdown ?? null,
           airtree_overlap: c.airtree_overlap ?? [],
           summary: c.summary || null,
-          scoring_model: HAIKU,
+          scoring_model: SONNET,
           scored_at: new Date().toISOString(),
           raw_extract: c,
         };
