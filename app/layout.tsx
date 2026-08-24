@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ANZ AI Radar",
-  description: "GitHub-sourced AI builders across Australia & New Zealand, ranked by founder-fit.",
+  title: "London AI Radar",
+  description: "UK AI deal flow and GitHub talent signal, scored against the Northzone thesis.",
 };
 
 export default function RootLayout({

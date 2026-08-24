@@ -204,7 +204,7 @@ export default function CandidateTable({ candidates }: { candidates: Candidate[]
           <tbody>
             {rows.map((c) => {
               const isOpen = expanded === c.id;
-              const alumni = c.airtree_alumni_match ?? [];
+              const alumni = c.fund_alumni_match ?? [];
               const signals = c.signals ?? [];
               return (
                 <FragmentRow

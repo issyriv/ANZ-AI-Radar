@@ -22,7 +22,7 @@ async function main() {
 
   console.log("=== TOP 25 BY THESIS FIT ===");
   for (const c of rows.slice(0, 25)) {
-    const ov = (c.airtree_overlap ?? []).length ? ` [${c.airtree_overlap.join(",")}]` : "";
+    const ov = (c.fund_overlap ?? []).length ? ` [${c.fund_overlap.join(",")}]` : "";
     console.log(
       `fit ${c.thesis_fit_score ?? "-"} | ${c.name}${c.ai_native ? " (AI)" : ""} | ${c.sector ?? "?"} | ${c.stage ?? "?"} | ${c.amount_raised ?? "?"}${ov}`,
     );

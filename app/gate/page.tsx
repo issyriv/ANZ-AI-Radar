@@ -42,7 +42,7 @@ function GateForm() {
         onSubmit={submit}
         className="w-full max-w-sm rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm"
       >
-        <div className="mb-1 text-sm font-semibold tracking-tight text-zinc-900">ANZ AI Radar</div>
+        <div className="mb-1 text-sm font-semibold tracking-tight text-zinc-900">London AI Radar</div>
         <p className="mb-6 text-sm text-zinc-500">Enter the access password to continue.</p>
         <input
           type="password"

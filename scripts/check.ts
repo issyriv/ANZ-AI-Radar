@@ -69,7 +69,7 @@ async function main() {
       const res = await fetch("https://api.github.com/rate_limit", {
         headers: {
           Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-          "User-Agent": "anz-ai-radar",
+          "User-Agent": "london-ai-radar",
         },
       });
       if (res.ok) {

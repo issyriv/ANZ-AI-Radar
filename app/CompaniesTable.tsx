@@ -5,14 +5,37 @@ import type { Company, ThesisBreakdown } from "@/lib/types";
 import { relativeDays, daysSince, scoreClasses } from "@/lib/format";
 import { DURABILITY_QUESTIONS } from "@/lib/thesis";
 
-type SortKey = "thesis_fit_score" | "name" | "source_published_at";
+const UK_RE = /^(united kingdom|uk|u\.k\.|great britain|britain|england|scotland|wales|northern ireland|gb)$/i;
+function isUk(country: string | null): boolean {
+  return !!country && UK_RE.test(country.trim());
+}
+
+type SortKey = "thesis_fit_score" | "name" | "source_published_at" | "last_raise_on";
 
 export default function CompaniesTable({ companies }: { companies: Company[] }) {
   const [minFit, setMinFit] = useState(0);
   const [sector, setSector] = useState("all");
   const [stage, setStage] = useState("all");
   const [sourceType, setSourceType] = useState("all");
+  // "Pre-investment" is a group of source types, not one, so it needs its own flag.
+  const [preInvestment, setPreInvestment] = useState(false);
+  const [raiseFilter, setRaiseFilter] = useState("all"); // all | raised | never | recent
+  // Mature companies are excluded by DEFAULT. They score high on the durability
+  // thesis precisely because they won — Wise and Revolut are 8s — but a company
+  // worth billions is not a sourcing target, and leaving them at the top made
+  // the ranking useless for the job the tool exists to do.
+  const [hideMature, setHideMature] = useState(true);
+  // Thesis misfits are hidden by default. These are companies the fund has said
+  // it does not invest in — drug discovery, generic AI productivity tools, pure
+  // hardware, purely consumer — and they can score highly on the durability
+  // dimensions while being un-investable, which is exactly how 28 drug-discovery
+  // companies ended up at fit 7+.
+  const [hideMisfits, setHideMisfits] = useState(true);
+  // NOT AI-only by default. Northzone is a generalist fund: its own portfolio is
+  // 38% Enterprise, 28% AI, 25% Consumer, 16% Fintech. Filtering to AI-native
+  // would hide most of what it actually buys. AI is a lens, not the universe.
   const [aiOnly, setAiOnly] = useState(false);
+  const [ukOnly, setUkOnly] = useState(true);
   const [recency, setRecency] = useState(0);
   const [sortKey, setSortKey] = useState<SortKey>("thesis_fit_score");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
@@ -58,7 +81,26 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
       if (sector !== "all" && c.sector !== sector) return false;
       if (stage !== "all" && c.stage !== stage) return false;
       if (sourceType !== "all" && c.source_type !== sourceType) return false;
+      // Incubators and university programmes are where companies sit before any
+      // institutional round; accelerators are pre-seed/seed at the latest.
+      if (preInvestment && !["incubator", "university", "accelerator"].includes(c.source_type ?? "")) {
+        return false;
+      }
       if (aiOnly && !c.ai_native) return false;
+      // Multi-geo funds list global portfolios, so non-UK companies do get
+      // extracted. They are kept (dropping them would lose the provenance of a
+      // real extraction) but hidden unless explicitly asked for.
+      if (ukOnly && !isUk(c.hq_country)) return false;
+      if (hideMature && c.maturity === "mature") return false;
+      if (hideMisfits && c.thesis_misfit) return false;
+      if (raiseFilter === "raised" && !c.last_raise_on) return false;
+      // "never raised" is only meaningful when we actually found the company on
+      // the register — absence of a match is not evidence of absence of a raise.
+      if (raiseFilter === "never" && (!c.ch_company_number || c.last_raise_on)) return false;
+      if (raiseFilter === "recent") {
+        const d = daysSince(c.last_raise_on);
+        if (d === null || d > 365) return false;
+      }
       if (recency > 0) {
         const d = daysSince(c.source_published_at);
         if (d === null || d > recency) return false;
@@ -71,6 +113,9 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
       if (sortKey === "name") {
         av = a.name.toLowerCase();
         bv = b.name.toLowerCase();
+      } else if (sortKey === "last_raise_on") {
+        av = a.last_raise_on ? Date.parse(a.last_raise_on) : 0;
+        bv = b.last_raise_on ? Date.parse(b.last_raise_on) : 0;
       } else if (sortKey === "source_published_at") {
         av = a.source_published_at ? Date.parse(a.source_published_at) : 0;
         bv = b.source_published_at ? Date.parse(b.source_published_at) : 0;
@@ -83,7 +128,7 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
       return 0;
     });
     return list;
-  }, [companies, minFit, sector, stage, sourceType, aiOnly, recency, sortKey, sortDir]);
+  }, [companies, minFit, sector, stage, sourceType, aiOnly, ukOnly, preInvestment, raiseFilter, hideMature, hideMisfits, recency, sortKey, sortDir]);
 
   return (
     <div>
@@ -97,6 +142,25 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
           }`}
         >
           Thesis picks · AI-native · fit 7+
+        </button>
+        <button
+          onClick={() => {
+            const on = !preInvestment;
+            setPreInvestment(on);
+            if (on) {
+              setAiOnly(true);
+              setSortKey("thesis_fit_score");
+              setSortDir("desc");
+            }
+          }}
+          className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
+            preInvestment
+              ? "border-sky-300 bg-sky-600 text-white"
+              : "border-zinc-300 bg-white text-zinc-700 hover:border-zinc-400"
+          }`}
+          title="Incubators, university programmes and accelerators — companies before any institutional round"
+        >
+          Pre-investment · incubator &amp; university
         </button>
         <div className="h-5 w-px bg-zinc-200" />
         <Select value={sector} onChange={setSector}>
@@ -122,6 +186,12 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
             <option key={n} value={n}>{n === 0 ? "Any fit" : `Fit ${n}+`}</option>
           ))}
         </Select>
+        <Select value={raiseFilter} onChange={setRaiseFilter}>
+          <option value="all">Any raise status</option>
+          <option value="recent">Raised in last 12mo</option>
+          <option value="raised">Has raised</option>
+          <option value="never">Never raised (on register)</option>
+        </Select>
         <Select value={String(recency)} onChange={(v) => setRecency(Number(v))}>
           <option value={0}>Any time</option>
           <option value={30}>Last 30d</option>
@@ -130,6 +200,24 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
         <label className="flex items-center gap-1.5 text-xs text-zinc-600">
           <input type="checkbox" checked={aiOnly} onChange={(e) => setAiOnly(e.target.checked)} />
           AI-native only
+        </label>
+        <label className="flex items-center gap-1.5 text-xs text-zinc-600">
+          <input type="checkbox" checked={ukOnly} onChange={(e) => setUkOnly(e.target.checked)} />
+          UK only
+        </label>
+        <label
+          className="flex items-center gap-1.5 text-xs text-zinc-600"
+          title="Hide widely-known, listed or billion-scale companies. They score high on durability but are not sourcing targets."
+        >
+          <input type="checkbox" checked={hideMature} onChange={(e) => setHideMature(e.target.checked)} />
+          Hide mature
+        </label>
+        <label
+          className="flex items-center gap-1.5 text-xs text-zinc-600"
+          title="Hide companies matching a stated anti-pattern: drug discovery, generic AI productivity tools, pure hardware, purely consumer."
+        >
+          <input type="checkbox" checked={hideMisfits} onChange={(e) => setHideMisfits(e.target.checked)} />
+          Hide thesis misfits
         </label>
         <span className="ml-auto text-xs text-zinc-500">
           {rows.length} of {companies.length}
@@ -141,11 +229,13 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
           <thead className="bg-zinc-50 text-left text-xs font-medium uppercase tracking-wide text-zinc-500">
             <tr>
               <Th onClick={() => toggleSort("name")} active={sortKey === "name"} dir={sortDir}>Company</Th>
+              <th className="px-3 py-2.5 font-medium">Location</th>
               <th className="px-3 py-2.5 font-medium">Sector</th>
               <th className="px-3 py-2.5 font-medium">Stage</th>
               <th className="px-3 py-2.5 font-medium">Raised</th>
+              <Th onClick={() => toggleSort("last_raise_on")} active={sortKey === "last_raise_on"} dir={sortDir} className="w-32">Last raise</Th>
               <Th onClick={() => toggleSort("thesis_fit_score")} active={sortKey === "thesis_fit_score"} dir={sortDir} className="w-20 text-center">Thesis</Th>
-              <th className="px-3 py-2.5 font-medium">Airtree</th>
+              <th className="px-3 py-2.5 font-medium">Northzone</th>
               <Th onClick={() => toggleSort("source_published_at")} active={sortKey === "source_published_at"} dir={sortDir} className="w-28">Source</Th>
             </tr>
           </thead>
@@ -154,7 +244,7 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
               <CompanyRow key={c.id} c={c} open={expanded === c.id} onToggle={() => setExpanded(expanded === c.id ? null : c.id)} />
             ))}
             {rows.length === 0 && (
-              <tr><td colSpan={7} className="px-4 py-12 text-center text-sm text-zinc-400">No companies match these filters.</td></tr>
+              <tr><td colSpan={9} className="px-4 py-12 text-center text-sm text-zinc-400">No companies match these filters.</td></tr>
             )}
           </tbody>
         </table>
@@ -164,7 +254,7 @@ export default function CompaniesTable({ companies }: { companies: Company[] }) 
 }
 
 function CompanyRow({ c, open, onToggle }: { c: Company; open: boolean; onToggle: () => void }) {
-  const overlap = c.airtree_overlap ?? [];
+  const overlap = c.fund_overlap ?? [];
   return (
     <>
       <tr onClick={onToggle} className={`cursor-pointer border-t border-zinc-100 align-top transition-colors hover:bg-zinc-50 ${open ? "bg-zinc-50" : ""}`}>
@@ -172,12 +262,50 @@ function CompanyRow({ c, open, onToggle }: { c: Company; open: boolean; onToggle
           <div className="flex items-center gap-2">
             <span className="font-medium text-zinc-900">{c.name}</span>
             {c.ai_native && <span className="rounded bg-indigo-50 px-1.5 py-0.5 text-[10px] font-medium text-indigo-700 ring-1 ring-indigo-200">AI</span>}
+            {c.maturity === "early" && <span className="rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-medium text-emerald-700 ring-1 ring-emerald-200">early</span>}
+            {c.maturity === "mature" && <span className="rounded bg-zinc-100 px-1.5 py-0.5 text-[10px] font-medium text-zinc-500 ring-1 ring-zinc-200">mature</span>}
+            {c.thesis_misfit && (
+              <span
+                className="rounded bg-rose-50 px-1.5 py-0.5 text-[10px] font-medium text-rose-700 ring-1 ring-rose-200"
+                title="Matches a stated anti-pattern — out of scope regardless of score"
+              >
+                {(c.misfit_reason ?? "misfit").replace(/_/g, " ")}
+              </span>
+            )}
           </div>
           {c.summary && <span className="mt-0.5 line-clamp-1 block max-w-md text-xs text-zinc-500">{c.summary}</span>}
         </td>
+        <td className="px-3 py-3 text-xs text-zinc-600">
+          {c.hq_city ?? (isUk(c.hq_country) ? "UK" : c.hq_country) ?? "—"}
+          {!isUk(c.hq_country) && c.hq_country && (
+            <span className="ml-1 rounded bg-zinc-100 px-1 py-0.5 text-[9px] font-medium text-zinc-500">non-UK</span>
+          )}
+        </td>
         <td className="px-3 py-3 text-xs text-zinc-600">{c.sector ?? "—"}</td>
-        <td className="px-3 py-3 text-xs text-zinc-600">{c.stage ?? "—"}</td>
+        <td className="px-3 py-3 text-xs text-zinc-600">
+          {c.stage ?? "—"}
+          {c.stage_source === "register" && (
+            <span className="block text-[9px] text-zinc-400">from register</span>
+          )}
+        </td>
         <td className="px-3 py-3 text-xs text-zinc-600">{c.amount_raised ?? "—"}</td>
+        <td className="px-3 py-3 text-xs">
+          {c.last_raise_on ? (
+            <>
+              <span className="text-zinc-700">{c.last_raise_on.slice(0, 10)}</span>
+              <span className="block text-zinc-400">
+                {relativeDays(c.last_raise_on)}
+                {c.share_issues_on_register ? ` · ${c.share_issues_on_register} issues` : ""}
+              </span>
+            </>
+          ) : c.ch_company_number ? (
+            <span className="text-zinc-400" title="Matched on the Companies House register with no share allotment filed">
+              none filed
+            </span>
+          ) : (
+            <span className="text-zinc-300">—</span>
+          )}
+        </td>
         <td className="px-3 py-3 text-center">
           <span className={`inline-flex h-7 w-7 items-center justify-center rounded-lg border text-sm font-semibold ${scoreClasses(c.thesis_fit_score)}`}>
             {c.thesis_fit_score ?? "–"}
@@ -201,7 +329,7 @@ function CompanyRow({ c, open, onToggle }: { c: Company; open: boolean; onToggle
       </tr>
       {open && (
         <tr className="border-t border-zinc-100 bg-zinc-50/60">
-          <td colSpan={7} className="px-4 py-5">
+          <td colSpan={9} className="px-4 py-5">
             <CompanyDetail c={c} />
           </td>
         </tr>
@@ -210,8 +338,21 @@ function CompanyRow({ c, open, onToggle }: { c: Company; open: boolean; onToggle
   );
 }
 
+// Dimensions present on the row but no longer part of the thesis. Rows scored
+// before the recalibration still carry switching_cost / regulated_trust /
+// distribution; showing them (labelled) beats showing an empty grid.
+const LEGACY_LABELS: Record<string, string> = {
+  switching_cost: "Switching cost (retired)",
+  regulated_trust: "Regulated trust (retired)",
+  distribution: "Durable distribution (retired)",
+};
+
 function CompanyDetail({ c }: { c: Company }) {
   const b = c.thesis_breakdown as ThesisBreakdown | null;
+  const current = new Set(DURABILITY_QUESTIONS.map((q) => q.key as string));
+  const legacy = Object.keys((b ?? {}) as Record<string, unknown>)
+    .filter((k) => !current.has(k) && LEGACY_LABELS[k])
+    .map((k) => ({ key: k, label: LEGACY_LABELS[k], prompt: "" }));
   return (
     <div className="grid gap-6 lg:grid-cols-3">
       <div className="lg:col-span-1">
@@ -228,10 +369,17 @@ function CompanyDetail({ c }: { c: Company }) {
         </div>
       </div>
       <div className="lg:col-span-2">
-        <div className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Durability breakdown</div>
+        <div className="flex items-baseline justify-between">
+          <div className="text-xs font-semibold uppercase tracking-wide text-zinc-400">Thesis breakdown</div>
+          {legacy.length > 0 && (
+            <span className="text-[10px] text-amber-700" title="Scored before the thesis was recalibrated to the fund's 2026 posture. Re-run scoring to update.">
+              scored on the previous thesis
+            </span>
+          )}
+        </div>
         <div className="mt-2 grid gap-2 sm:grid-cols-2">
-          {DURABILITY_QUESTIONS.map((q) => {
-            const dim = b?.[q.key];
+          {[...DURABILITY_QUESTIONS, ...legacy].map((q) => {
+            const dim = (b as Record<string, { score: number; note: string } | undefined>)?.[q.key];
             return (
               <div key={q.key} className="rounded-lg border border-zinc-200 bg-white p-3">
                 <div className="flex items-center justify-between">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSupabaseAdmin } from "@/lib/supabase";
+import { loadCandidates as storeLoadCandidates } from "@/lib/store";
 import type { Candidate } from "@/lib/types";
 import CandidateTable from "../CandidateTable";
 
@@ -7,14 +7,13 @@ export const dynamic = "force-dynamic";
 
 async function loadCandidates(): Promise<{ candidates: Candidate[]; error: string | null }> {
   try {
-    const sb = getSupabaseAdmin();
-    const { data, error } = await sb
-      .from("candidates")
-      .select("*")
-      .order("fit_score", { ascending: false, nullsFirst: false })
-      .order("starred_ai_30d", { ascending: false });
-    if (error) return { candidates: [], error: error.message };
-    return { candidates: (data ?? []) as Candidate[], error: null };
+    const rows = await storeLoadCandidates();
+    rows.sort(
+      (a, b) =>
+        (b.fit_score ?? -1) - (a.fit_score ?? -1) ||
+        (b.starred_ai_30d ?? 0) - (a.starred_ai_30d ?? 0),
+    );
+    return { candidates: rows, error: null };
   } catch (e) {
     return { candidates: [], error: (e as Error).message };
   }
@@ -30,12 +29,14 @@ export default async function CandidatesPage() {
         <nav className="mb-3 flex gap-4 text-sm">
           <Link href="/" className="text-zinc-500 hover:text-zinc-900">Deal Flow</Link>
           <span className="font-medium text-zinc-900">Talent Radar</span>
+          <Link href="/formations" className="text-zinc-500 hover:text-zinc-900">Formations</Link>
+          <Link href="/sources" className="text-zinc-500 hover:text-zinc-900">Sources</Link>
         </nav>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">Talent Radar</h1>
             <p className="mt-1 text-sm text-zinc-500">
-              AI-active builders across Australia &amp; New Zealand, surfaced from GitHub and ranked by founder-fit.
+              AI-active builders across London and the UK tech hubs, surfaced from GitHub and ranked by founder-fit.
             </p>
           </div>
           <div className="text-right text-xs text-zinc-500">

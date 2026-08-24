@@ -6,7 +6,7 @@ import type { Candidate } from "../lib/types";
 const FOUNDER_TERMS = [
   "founder", "co-found", "cofound", "ceo", "cto", "stealth", "building ",
   "we're building", "startup", "start-up", "my company", "incorporated",
-  "raised", "seed", " yc ", "y combinator", "antler", "startmate", "founding",
+  "raised", "seed", " yc ", "y combinator", "antler", "entrepreneur first", "seedcamp", "founding",
 ];
 
 function hits(text: string): string[] {
@@ -37,7 +37,7 @@ async function main() {
     if (c.company) console.log(`    company: ${c.company}`);
     if (c.bio) console.log(`    bio: ${c.bio.replace(/\s+/g, " ").slice(0, 140)}`);
     if (c.enrichment_summary) console.log(`    summary: ${c.enrichment_summary.replace(/\s+/g, " ")}`);
-    if (c.airtree_alumni_match?.length) console.log(`    ALUMNI: ${c.airtree_alumni_match.join(", ")}`);
+    if (c.fund_alumni_match?.length) console.log(`    ALUMNI: ${c.fund_alumni_match.join(", ")}`);
     console.log(`    matched terms: ${why.join(", ")}`);
     console.log("");
   }

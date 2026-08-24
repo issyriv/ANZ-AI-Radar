@@ -1,4 +1,4 @@
--- ANZ AI Radar — Supabase schema
+-- London AI Radar — Supabase schema (Northzone)
 -- Run this in the Supabase SQL Editor (idempotent; safe to re-run).
 -- Access pattern: all reads/writes happen server-side with the SECRET (service_role)
 -- key, which bypasses RLS. We keep RLS on (default) and add no public policies,
@@ -25,7 +25,7 @@ create table if not exists public.candidates (
 
   -- raw location + our normalized guess (fuzzy; false positives accepted)
   location                text,
-  location_normalized     text,                 -- e.g. "Sydney, AU"
+  location_normalized     text,                 -- e.g. "London"
 
   -- GitHub stats
   followers               integer default 0,
@@ -47,7 +47,7 @@ create table if not exists public.candidates (
   enrichment_summary      text,                 -- 2-line "why interesting"
   fit_score               integer,              -- 1-10 "could found / about to found an AI company"
   signals                 text[] default '{}',  -- flagged signals (human-readable)
-  airtree_alumni_match    text[] default '{}',  -- matched Airtree portfolio companies
+  fund_alumni_match       text[] default '{}',  -- matched Northzone portfolio companies
   enrichment_model        text,
   enriched_at             timestamptz,
   enrichment_raw          jsonb,                -- full model response for debugging
@@ -104,7 +104,7 @@ create table if not exists public.cut_through_posts (
 );
 
 -- ---------------------------------------------------------------------------
--- companies: ANZ startups pulled from the deal/news feeds, scored vs thesis.
+-- companies: UK startups pulled from the crawl, scored vs the Northzone thesis.
 -- ---------------------------------------------------------------------------
 create table if not exists public.companies (
   id                  uuid primary key default gen_random_uuid(),
@@ -116,21 +116,22 @@ create table if not exists public.companies (
   -- extracted deal facts
   stage               text,                         -- pre-seed / seed / series a / grant / unknown
   sector              text,
+  hq_city             text,                          -- normalized UK city
   ai_native           boolean default false,
   amount_raised       text,                         -- raw string e.g. "$3.5M"
   investors           text[] default '{}',
   founders            text[] default '{}',
 
   -- provenance
-  source              text,                         -- "Startup Daily", "Startmate", etc.
+  source              text,                         -- "UKTN", "Seedcamp", "Atomico", etc.
   source_type         text,                         -- accelerator | vc_portfolio | publication | university | job_signal
   source_url          text,
   source_published_at timestamptz,
 
   -- thesis scoring (filled by score pass)
-  thesis_fit_score    integer,                      -- 1-10 vs Airtree durability thesis
+  thesis_fit_score    integer,                      -- 1-10 vs Northzone durability thesis
   thesis_breakdown    jsonb,                        -- {switching_cost, proprietary_data, regulated_trust, distribution: {score, note}}
-  airtree_overlap     text[] default '{}',          -- founders/investors overlapping Airtree portfolio/alumni
+  fund_overlap        text[] default '{}',          -- founders/investors overlapping the Northzone portfolio
   summary             text,                         -- why it fits / why interesting
   scoring_model       text,
   scored_at           timestamptz,

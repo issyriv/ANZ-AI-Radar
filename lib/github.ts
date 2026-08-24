@@ -14,7 +14,7 @@ function authHeaders(accept = "application/vnd.github+json"): HeadersInit {
     Authorization: `Bearer ${token}`,
     Accept: accept,
     "X-GitHub-Api-Version": "2022-11-28",
-    "User-Agent": "anz-ai-radar",
+    "User-Agent": "london-ai-radar",
   };
 }
 

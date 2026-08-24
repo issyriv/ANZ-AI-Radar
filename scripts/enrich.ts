@@ -1,18 +1,19 @@
 import "./_bootstrap";
-import { getSupabaseAdmin } from "../lib/supabase";
 import { getAnthropic, HAIKU } from "../lib/anthropic";
-import { AIRTREE_ALUMNI } from "../lib/config";
+import { assertBudget, BudgetExceededError, logSummary, record } from "../lib/cost";
+import { FUND, FUND_ALUMNI, FUND_PROMPT_ALUMNI, isAmbiguousAlumniName } from "../lib/fund";
+import { backend, loadCandidates, update } from "../lib/store";
 import type { Candidate, EnrichmentResult, RepoSummary, StarredRepoSummary } from "../lib/types";
 
 const FORCE = process.argv.includes("--force") || process.env.ENRICH_FORCE === "1";
 const LIMIT = process.env.ENRICH_LIMIT ? Number(process.env.ENRICH_LIMIT) : undefined;
 const CONCURRENCY = Number(process.env.ENRICH_CONCURRENCY ?? 3);
 
-const ALUMNI_NAMES = AIRTREE_ALUMNI.map((a) => a.name);
+const ALUMNI_NAMES = FUND_PROMPT_ALUMNI;
 
-const SYSTEM = `You are a sourcing analyst for Airtree, an early-stage venture capital firm in Sydney. Airtree backs technical founders building AI-native companies in Australia and New Zealand.
+const SYSTEM = `You are a sourcing analyst for ${FUND.name}, a ${FUND.blurb}, investing out of ${FUND.hq}. ${FUND.name} backs technical founders building AI-native companies, and the UK is its home market.
 
-You are given one GitHub user's public footprint. Assess whether this person could found, or is about to found, an AI company — the kind of builder Airtree should reach out to early, before they announce.
+You are given one GitHub user's public footprint. Assess whether this person could found, or is about to found, an AI company — the kind of builder ${FUND.name} should reach out to early, before they announce.
 
 fit_score (1-10) rubric:
 - 9-10: strong founder signal — owns product-shaped AI repos (not just research/forks), recently very active, profile/bio suggests they are building something or recently left a role to do so.
@@ -24,10 +25,11 @@ Signals to flag when present (short phrases, cite the concrete number/fact):
 - rapid recent AI starring (e.g. "starred 28 AI repos in last 30 days")
 - owns repos that look like a product, not research or coursework
 - bio/company suggests they recently left a senior role, or says "building", "stealth", "founder", "ex-<company>"
-- contributing to frontier AI infra (vllm, transformers, langchain, etc.)
-- account/activity pattern suggesting building in stealth (e.g. lots of recent private-ish signal: high recent activity but few new public repos)
+- contributing to frontier AI infra (vllm, transformers, langchain, MCP servers, etc.)
+- activity pattern suggesting building in stealth (high recent activity, few new public repos)
+- based in or moving to a UK hub (London especially), or ex-employee of a UK AI scaleup
 
-Airtree portfolio / alumni companies — flag in airtree_alumni_match if this person appears to be a current or former employee (from company field, bio, or email domain). Use these EXACT names: ${ALUMNI_NAMES.join(", ")}.
+${FUND.name} portfolio companies — flag in fund_alumni_match if this person appears to be a current or former employee (from company field, bio, or email domain). Use these EXACT names: ${ALUMNI_NAMES.join(", ")}.
 
 Be concise and specific. The summary must be exactly 2 short lines (max ~240 chars) and name concrete signals, not generic praise. Never invent facts not supported by the data.`;
 
@@ -52,13 +54,13 @@ const TOOL = {
         items: { type: "string" },
         description: "Short flagged signals, each citing a concrete fact. Empty array if none.",
       },
-      airtree_alumni_match: {
+      fund_alumni_match: {
         type: "array",
         items: { type: "string" },
-        description: "Exact names from the provided alumni list this person is affiliated with, or empty array.",
+        description: "Exact names from the provided portfolio list this person is affiliated with, or empty array.",
       },
     },
-    required: ["summary", "fit_score", "signals", "airtree_alumni_match"],
+    required: ["summary", "fit_score", "signals", "fund_alumni_match"],
   },
 };
 
@@ -106,17 +108,56 @@ ${starLines || "(none)"}
 Raw matched signals: ${(c.matched_signals ?? []).slice(0, 20).join("; ") || "none"}`;
 }
 
+// The set of names the model is allowed to return, lowercased for comparison.
+// Constraining the prompt to "use these EXACT names" is not enough on its own:
+// a live run came back with Cloudflare, Sentry and Solo.io, none of which are in
+// the Northzone portfolio. A fabricated portfolio company is worse than a missed
+// one, so anything outside the list is dropped.
+const ALLOWED_ALUMNI = new Map(FUND_ALUMNI.map((a) => [a.name.toLowerCase(), a.name]));
+
+function whitelistAlumni(names: string[]): string[] {
+  const kept: string[] = [];
+  for (const n of names) {
+    const canonical = ALLOWED_ALUMNI.get(n.trim().toLowerCase());
+    if (canonical) kept.push(canonical);
+    else console.warn(`[enrich] dropped hallucinated alumni match: ${JSON.stringify(n)}`);
+  }
+  return kept;
+}
+
 // Deterministic alumni match against company/bio/email (reliable; unioned with model).
 function deterministicAlumni(c: Candidate): string[] {
   const hay = `${c.company ?? ""} ${c.bio ?? ""} ${c.email ?? ""}`.toLowerCase();
+  if (!hay.trim()) return [];
   const out: string[] = [];
-  for (const a of AIRTREE_ALUMNI) {
-    if (a.aliases.some((alias) => hay.includes(alias.toLowerCase()))) out.push(a.name);
+  for (const a of FUND_ALUMNI) {
+    const hit = a.aliases.some((alias) => {
+      const needle = alias.toLowerCase();
+      // Email-domain aliases ("@klarna.com") are unambiguous as substrings.
+      if (needle.startsWith("@")) return hay.includes(needle);
+      // Everything else needs word boundaries: substring matching gave a 40%
+      // false-positive rate, firing "Stream" on a bio about streaming.
+      const esc = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      return new RegExp(`\\b${esc}\\b`).test(hay);
+    });
+    if (!hit) continue;
+    // A generic single-word name needs a stronger cue than one loose mention.
+    if (isAmbiguousAlumniName(a.name)) {
+      const strong = a.aliases.some(
+        (alias) =>
+          alias.startsWith("@") ||
+          new RegExp(`\\b(at|ex|former(ly)?|joined)\\s+${a.name.toLowerCase()}\\b`).test(hay) ||
+          new RegExp(`\\b${a.name.toLowerCase()}\\s+(games|labs|ltd|limited|inc|technolog)`).test(hay),
+      );
+      if (!strong) continue;
+    }
+    out.push(a.name);
   }
   return out;
 }
 
 async function enrichOne(c: Candidate): Promise<EnrichmentResult> {
+  assertBudget();
   const anthropic = getAnthropic();
   const msg = await anthropic.messages.create({
     model: HAIKU,
@@ -127,6 +168,7 @@ async function enrichOne(c: Candidate): Promise<EnrichmentResult> {
     messages: [{ role: "user", content: buildUserBlock(c) }],
   });
 
+  record(HAIKU, msg.usage);
   const toolUse = msg.content.find((b) => b.type === "tool_use");
   if (!toolUse || toolUse.type !== "tool_use") {
     throw new Error("no tool_use in response");
@@ -137,49 +179,51 @@ async function enrichOne(c: Candidate): Promise<EnrichmentResult> {
     summary: String(input.summary ?? "").trim(),
     fit_score: fit,
     signals: Array.isArray(input.signals) ? input.signals.map(String) : [],
-    airtree_alumni_match: Array.isArray(input.airtree_alumni_match)
-      ? input.airtree_alumni_match.map(String)
+    fund_alumni_match: Array.isArray(input.fund_alumni_match)
+      ? input.fund_alumni_match.map(String)
       : [],
   };
 }
 
 async function main() {
-  const sb = getSupabaseAdmin();
-  let q = sb.from("candidates").select("*").order("starred_ai_count", { ascending: false });
-  if (!FORCE) q = q.is("enriched_at", null);
-  if (LIMIT) q = q.limit(LIMIT);
-
-  const { data, error } = await q;
-  if (error) throw new Error(error.message);
-  const candidates = (data ?? []) as Candidate[];
-  console.log(`[enrich] ${candidates.length} candidates to enrich (force=${FORCE}, concurrency=${CONCURRENCY})`);
+  console.log(`[enrich] store=${await backend()}`);
+  const all = await loadCandidates();
+  let candidates = FORCE ? all : all.filter((c) => !c.enriched_at);
+  candidates.sort((a, b) => (b.starred_ai_count ?? 0) - (a.starred_ai_count ?? 0));
+  if (LIMIT) candidates = candidates.slice(0, LIMIT);
+  console.log(
+    `[enrich] ${candidates.length} candidates to enrich (force=${FORCE}, concurrency=${CONCURRENCY})`,
+  );
 
   let done = 0;
   let failed = 0;
+  let aborted: string | null = null;
 
   async function worker(slice: Candidate[]) {
     for (const c of slice) {
+      if (aborted) return;
       try {
         const res = await enrichOne(c);
         const alumni = Array.from(
-          new Set([...res.airtree_alumni_match, ...deterministicAlumni(c)]),
+          new Set([...whitelistAlumni(res.fund_alumni_match), ...deterministicAlumni(c)]),
         );
-        const { error: upErr } = await sb
-          .from("candidates")
-          .update({
-            enrichment_summary: res.summary,
-            fit_score: res.fit_score,
-            signals: res.signals,
-            airtree_alumni_match: alumni,
-            enrichment_model: HAIKU,
-            enriched_at: new Date().toISOString(),
-            enrichment_raw: res,
-          })
-          .eq("id", c.id);
-        if (upErr) throw new Error(upErr.message);
+        await update("candidates", { column: "id", value: c.id }, {
+          enrichment_summary: res.summary,
+          fit_score: res.fit_score,
+          signals: res.signals,
+          fund_alumni_match: alumni,
+          enrichment_model: HAIKU,
+          enriched_at: new Date().toISOString(),
+          enrichment_raw: res,
+        });
         done++;
         if (done % 20 === 0) console.log(`[enrich] ${done}/${candidates.length} done`);
       } catch (e) {
+        if (e instanceof BudgetExceededError) {
+          aborted = e.message;
+          console.error(`[enrich] ABORTED — ${e.message}`);
+          return;
+        }
         failed++;
         console.error(`[enrich] fail ${c.github_login}: ${(e as Error).message}`);
       }
@@ -192,6 +236,7 @@ async function main() {
   await Promise.all(slices.map(worker));
 
   console.log(`[enrich] DONE — ${done} enriched, ${failed} failed.`);
+  logSummary();
   process.exit(0);
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "anz-ai-radar",
+  "name": "london-ai-radar",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,13 +11,26 @@
     "deals": "tsx scripts/deals.ts",
     "ingest": "tsx scripts/ingest.ts",
     "enrich": "tsx scripts/enrich.ts",
-    "snapshot": "tsx scripts/snapshot.ts"
+    "snapshot": "tsx scripts/snapshot.ts",
+    "fund:sync": "tsx scripts/fund-sync.ts",
+    "probe": "tsx scripts/probe.ts",
+    "formations": "tsx scripts/formations.ts",
+    "formations:score": "tsx scripts/formations-score.ts",
+    "verify:geo": "tsx scripts/verify-geo.ts",
+    "funding": "tsx scripts/funding.ts",
+    "maturity": "tsx scripts/maturity.ts",
+    "misfits": "tsx scripts/misfits.ts",
+    "rescore": "tsx scripts/rescore.ts",
+    "hiring": "tsx scripts/hiring.ts",
+    "fund:detail": "tsx scripts/fund-detail.ts",
+    "stream": "tsx scripts/stream.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",
     "@supabase/supabase-js": "^2.106.1",
     "dotenv": "^17.4.2",
     "next": "16.2.6",
+    "playwright": "^1.62.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

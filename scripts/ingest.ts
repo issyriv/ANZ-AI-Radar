@@ -1,10 +1,11 @@
 import "./_bootstrap";
-import { getSupabaseAdmin } from "../lib/supabase";
+import { backend, upsertCandidates } from "../lib/store";
 import {
   LOCATION_QUERIES,
   SEED_AI_REPOS,
   repoLooksAI,
   normalizeLocation,
+  looksUK,
 } from "../lib/config";
 import {
   searchUsers,
@@ -128,13 +129,15 @@ function evaluate(repos: GhRepo[], starred: GhStarred[], events: GhEvent[]) {
 async function buildPool(): Promise<{ login: string; bucket: string }[]> {
   const seen = new Set<string>();
   // One list per (city x follower-bucket) query series.
-  const lists: { login: string; bucket: string }[][] = [];
+  const lists: { weight: number; items: { login: string; bucket: string }[] }[] = [];
   for (const loc of LOCATION_QUERIES) {
     const locQuery = loc.query.includes(" ") ? `"${loc.query}"` : loc.query;
+    // London is the point of the tool, so it gets proportionally more pages.
+    const pages = Math.max(1, Math.round(PAGES_PER_QUERY * (loc.weight ?? 1)));
     for (const fb of FOLLOWER_BUCKETS) {
       const q = `location:${locQuery} followers:${fb} repos:>1`;
       const list: { login: string; bucket: string }[] = [];
-      for (let page = 1; page <= PAGES_PER_QUERY; page++) {
+      for (let page = 1; page <= pages; page++) {
         let items;
         try {
           ({ items } = await searchUsers(q, page));
@@ -151,24 +154,38 @@ async function buildPool(): Promise<{ login: string; bucket: string }[]> {
         }
         if (items.length < 100) break; // last page of this bucket
       }
-      if (list.length) lists.push(list);
+      if (list.length) lists.push({ weight: loc.weight ?? 1, items: list });
       console.log(`[search] ${loc.query} f:${fb}: ${list.length} new (pool ${seen.size})`);
     }
   }
-  // Round-robin interleave across all (city x bucket) lists so scanning samples
-  // all cities AND all follower bands, not one city's or one band's full pool.
+  // Weighted round-robin across all (city x bucket) lists, so scanning samples
+  // every city AND every follower band rather than draining one of either.
+  //
+  // The weight has to be applied HERE, not just to how many pages we fetch. An
+  // earlier version weighted only the fetch and then interleaved one-per-list,
+  // which handed every city an equal share of the scan budget: a London-focused
+  // radar came back with 25 Londoners out of 300, behind Bristol and Oxford.
   const pool: { login: string; bucket: string }[] = [];
-  const maxLen = Math.max(0, ...lists.map((l) => l.length));
-  for (let i = 0; i < maxLen; i++) {
-    for (const list of lists) {
-      if (i < list.length) pool.push(list[i]);
+  const cursors = lists.map(() => 0);
+  for (;;) {
+    let progressed = false;
+    for (const [li, list] of lists.entries()) {
+      // Take `weight` entries per cycle instead of one.
+      for (let k = 0; k < list.weight; k++) {
+        const i = cursors[li];
+        if (i >= list.items.length) break;
+        pool.push(list.items[i]);
+        cursors[li] = i + 1;
+        progressed = true;
+      }
     }
+    if (!progressed) break;
   }
   return pool;
 }
 
 async function main() {
-  const sb = getSupabaseAdmin();
+  console.log(`[ingest] store=${await backend()}`);
   console.log(
     `[ingest] target=${TARGET} maxScan=${MAX_SCAN} pagesPerQuery=${PAGES_PER_QUERY} buckets=[${FOLLOWER_BUCKETS.join(", ")}]`,
   );
@@ -191,6 +208,9 @@ async function main() {
 
       const ev = evaluate(repos, starred, events);
       if (!ev.relevant) continue;
+      // Country-level searches ("United Kingdom", "England") pull in profiles
+      // whose self-written location is somewhere else entirely.
+      if (!looksUK(user.location)) continue;
 
       const topRepos = repos
         .filter((r) => !r.fork)
@@ -226,13 +246,7 @@ async function main() {
         last_ai_activity_at: ev.lastAiActivity,
       };
 
-      const { error } = await sb
-        .from("candidates")
-        .upsert(row, { onConflict: "github_login" });
-      if (error) {
-        console.error(`[upsert] ${user.login}: ${error.message}`);
-        continue;
-      }
+      await upsertCandidates([row]);
       kept++;
       if (kept % 10 === 0) {
         console.log(`[ingest] kept ${kept}/${TARGET} (scanned ${scanned}/${pool.length})`);

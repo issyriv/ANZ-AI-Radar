@@ -1,6 +1,6 @@
 import "./_bootstrap";
 import { getSupabaseAdmin } from "../lib/supabase";
-import type { Candidate, Snapshot, SnapshotRow } from "../lib/types";
+import type { Snapshot, SnapshotRow } from "../lib/types";
 
 // Usage:
 //   npm run snapshot          -> save a snapshot of the current candidate list

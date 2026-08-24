@@ -1,0 +1,2924 @@
+{
+  "fund": "Northzone",
+  "source_url": "https://northzone.com/portfolio/",
+  "synced_at": "2026-08-24T02:12:57.617Z",
+  "count": 143,
+  "companies": [
+    {
+      "name": "Agon",
+      "slug": "agon",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2026,
+      "partnered": 2026,
+      "partner": "Sanjot Malhi Naseem",
+      "founders": [
+        "Tristam Constant",
+        "Junaid Hussain"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Aidence",
+      "slug": "aidence",
+      "status": "Acquired",
+      "stage": "Seed",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "Netherlands"
+      ],
+      "founded": 2015,
+      "partnered": 2017,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Jeroen van Duffelen",
+        "Mark-Jan Harte"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "AirForestry",
+      "slug": "airforestry",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Climate & Energy",
+        "AI"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2020,
+      "partnered": 2024,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Olle Gelin",
+        "Mauritz Andersson",
+        "Markus Romar",
+        "Caroline Walerud"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Alphora",
+      "slug": "",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Germany"
+      ]
+    },
+    {
+      "name": "Anyfin",
+      "slug": "anyfin",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2017,
+      "partnered": 2018,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Filip Polhem",
+        "Mikael Hussain",
+        "Sven Perkmann"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Asetek",
+      "slug": "asetek",
+      "status": "IPO",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Denmark"
+      ],
+      "founded": 2000,
+      "partnered": 2005,
+      "partner": "No",
+      "founders": [
+        "André Sloth Eriksen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Avito",
+      "slug": "avito",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2007,
+      "partnered": 2010,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Jonas Nordlander",
+        "Filip Engelbert"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Axon",
+      "slug": "axon",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2025,
+      "partnered": 2025,
+      "partner": "Pär-Jörgen Pärson Naseem",
+      "founders": [
+        "Ayush Shah",
+        "Nick D&#x27;Aloisio"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Bedrock",
+      "slug": "bedrock",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2020,
+      "partnered": 2023,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Anthony DiMare",
+        "Charles Chiau"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Behaviosec",
+      "slug": "behaviosec",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2007,
+      "partnered": 2013,
+      "partner": "No",
+      "founders": [
+        "Olov Renberg"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Berry Street",
+      "slug": "berry-street",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Healthcare",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2022,
+      "partnered": 2023,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Noah Kotlove",
+        "Jesse Rose"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Black Forest Labs",
+      "slug": "black-forest-labs",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2024,
+      "partnered": 2024,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Robin Rombach",
+        "Patrick Esser",
+        "Andreas Blattmann"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Blitzy",
+      "slug": "blitzy",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2023,
+      "partnered": 2026,
+      "partner": "Sanjot Malhi Alex",
+      "founders": [
+        "Brian Elliott",
+        "Sid Pardeshi"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Brickanta",
+      "slug": "brickanta",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2025,
+      "partnered": 2026,
+      "partner": "Pär-Jörgen Pärson Dominik",
+      "founders": [
+        "Lucas Otterling",
+        "Linus Bein Fahlander"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Bunch",
+      "slug": "bunch",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2017,
+      "partnered": 2018,
+      "partner": "No",
+      "founders": [
+        "Jason Liang",
+        "Selcuk Atli"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "CarOnSale",
+      "slug": "caronsale",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2018,
+      "partnered": 2025,
+      "partner": "Alex Agureev Sanjot",
+      "founders": [
+        "Tom Krüger",
+        "Max Schilling",
+        "Fabian Roth and Oguz Özgüler"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Catawiki",
+      "slug": "catawiki",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Netherlands"
+      ],
+      "founded": 2008,
+      "partnered": 2016,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "René Schoenmakers",
+        "Marco Jansen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Chord",
+      "slug": "chord",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2019,
+      "partnered": 2020,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Shabdha Chigurupati",
+        "Henry Davis",
+        "Bryan Mahoney",
+        "Ariel Wengroff"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Clarium",
+      "slug": "clarium",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Healthcare",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2020,
+      "partnered": 2025,
+      "partner": "No",
+      "founders": [
+        "Steve Liou"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "CrossLend",
+      "slug": "crosslend",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2014,
+      "partnered": 2015,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Oliver Schimek"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "CuspAI",
+      "slug": "cuspai",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2024,
+      "partnered": 2024,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Prof. Max Welling",
+        "Dr. Chad Edwards"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Dalma",
+      "slug": "dalma",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "France"
+      ],
+      "founded": 2021,
+      "partnered": 2022,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Alban de Préville",
+        "Raphaël Sadaka"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Defacto",
+      "slug": "defacto",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "France"
+      ],
+      "founded": 2021,
+      "partnered": 2022,
+      "partner": "No",
+      "founders": [
+        "Jordane Giuly",
+        "Marc-Henri Gires",
+        "Morgan O&#x27;hana"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Disperse",
+      "slug": "disperse",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2015,
+      "partnered": 2019,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Denis Konoplev",
+        "Felix Neufeld"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Distribusion",
+      "slug": "distribusion",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2012,
+      "partnered": 2016,
+      "partner": "No",
+      "founders": [
+        "Julian Hauck",
+        "Johannes Thunert"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Dots",
+      "slug": "dots",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2013,
+      "partnered": 2014,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Paul Murphy",
+        "Patrick Moberg"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Duvo.ai",
+      "slug": "duvo-ai",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Czech Republic"
+      ],
+      "founded": 2025,
+      "partnered": 2025,
+      "partner": "Alessandro De Benedetti",
+      "founders": [
+        "Tomas Čupr",
+        "Marek Paris",
+        "Martin Pecha"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Einride",
+      "slug": "einride",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2016,
+      "partnered": 2021,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Filip Lilja",
+        "Linnéa Kornehed",
+        "Robert Falck"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Energy Micro",
+      "slug": "energy-micro",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2007,
+      "partnered": 2010,
+      "partner": "No",
+      "founders": [
+        "Geir Førre"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "EpiServer",
+      "slug": "episerver",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 1994,
+      "partnered": 2007,
+      "partner": "No",
+      "founders": [
+        "Mikael Runhem"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Era",
+      "slug": "era",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2023,
+      "partnered": 2023,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Lindsay Brady",
+        "Alex Norcliffe"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Fiberplane",
+      "slug": "fiberplane",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Netherlands"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Micha Hernandez van Leuffen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Filed",
+      "slug": "filed",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Sweden",
+        "United States"
+      ],
+      "founded": 2025,
+      "partnered": 2025,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Atul Ramachadran",
+        "Leroy Kerry"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Finom",
+      "slug": "finom",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Netherlands"
+      ],
+      "founded": 2020,
+      "partnered": 2024,
+      "partner": "Alex Agureev Sanjot",
+      "founders": [
+        "Andrew Petrov",
+        "Kos Stiskin",
+        "Oleg Laguta",
+        "and Yakov Novikov"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Fishbrain",
+      "slug": "fishbrain",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2010,
+      "partnered": 2014,
+      "partner": "No",
+      "founders": [
+        "Jens Persson",
+        "Johan Attby"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Flink",
+      "slug": "flink",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Christoph Cordes",
+        "Oliver Merkel",
+        "Julian Dames"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Flower",
+      "slug": "flower",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Climate & Energy",
+        "AI"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2020,
+      "partnered": 2024,
+      "partner": "Pär-Jörgen Pärson Naseem",
+      "founders": [
+        "John Diklev"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Footway",
+      "slug": "footway",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2010,
+      "partnered": 2014,
+      "partner": "No",
+      "founders": [
+        "Sara Wimmercranz"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Forto",
+      "slug": "forto",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2016,
+      "partnered": 2017,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Erik Muttersbach",
+        "Fabian Heilemann",
+        "Ferry Heilemann",
+        "Michael Wax"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "FuboTV",
+      "slug": "fubotv",
+      "status": "IPO",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2015,
+      "partnered": 2017,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "David Gandler",
+        "Alberto Horihuela",
+        "Sung Ho Choi"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Funcom",
+      "slug": "funcom",
+      "status": "IPO",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 1993,
+      "partnered": 2004,
+      "partner": "No",
+      "founders": [
+        "Andre Backen",
+        "Erik Gloersen",
+        "Gaute Godager",
+        "Olav Mørkrid",
+        "Tyr Neilsen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Fyndiq",
+      "slug": "fyndiq",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2009,
+      "partnered": 2014,
+      "partner": "No",
+      "founders": [
+        "Dan Nilsson",
+        "David Brudö",
+        "Dinesh Nayar",
+        "Fredrik Norberg"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "GC AI",
+      "slug": "gc-ai",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2023,
+      "partnered": 2025,
+      "partner": "Molly Alter Pascual",
+      "founders": [
+        "Cecilia Ziniti",
+        "Bardia Pourvakil"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Genesis AI",
+      "slug": "genesis-ai",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2024,
+      "partnered": 2025,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Théophile Gervet",
+        "Zhou Xian"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Goals",
+      "slug": "goals",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2021,
+      "partnered": 2022,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Andreas Thorstensson"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "GovDash",
+      "slug": "govdash",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2021,
+      "partnered": 2024,
+      "partner": "Molly Alter Against",
+      "founders": [
+        "Sean Doherty",
+        "Curtis Mason",
+        "Timothy Golster"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "HappyOrNot",
+      "slug": "happyornot",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Finland"
+      ],
+      "founded": 2009,
+      "partnered": 2017,
+      "partner": "No",
+      "founders": [
+        "Heikki Väänänen",
+        "Ville Levaniemi"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Heltia",
+      "slug": "heltia",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "Türkiye"
+      ],
+      "founded": 2022,
+      "partnered": 2023,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Alperen Adikti",
+        "Dinçer Karaduman"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Hero Journey Club",
+      "slug": "hero-journey-club",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2022,
+      "partnered": 2023,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Brian Chhor",
+        "Marc Simon"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Hidden Door",
+      "slug": "hidden-door",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Hilary Mason",
+        "Matt Brandwein"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Holidu",
+      "slug": "holidu",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2014,
+      "partnered": 2022,
+      "partner": "No",
+      "founders": [
+        "Johannes Siebers",
+        "Michael Siebers",
+        "Rasmus Porsgaard"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Homa Games",
+      "slug": "homa-games",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "France"
+      ],
+      "founded": 2018,
+      "partnered": 2021,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Daniel Nathan",
+        "Olivier Le Bas"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Hopin",
+      "slug": "hopin",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2019,
+      "partnered": 2020,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Dave Schools",
+        "Johnny Boufarhat"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Iconic",
+      "slug": "iconic",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2023,
+      "partnered": 2025,
+      "partner": "Pär-Jörgen Pärson Naseem",
+      "founders": [
+        "Andrew Bowell",
+        "John Lusty",
+        "Junaid Hussain"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Idoven",
+      "slug": "idoven",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Healthcare",
+        "AI"
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "founded": 2018,
+      "partnered": 2022,
+      "partner": "Pascual Cortes-Monroy Michiel",
+      "founders": [
+        "Inigo Jeganath",
+        "José María Lillo Castellano",
+        "Dr Manuel Marina Breysse"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Jasper",
+      "slug": "jasper",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 1999,
+      "partnered": 2003,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Vigyan Singhal"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Jow",
+      "slug": "jow",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "France"
+      ],
+      "founded": 2017,
+      "partnered": 2024,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Jacques-Edouard Sabatier",
+        "Antoine Maillard",
+        "Frank Maurin"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Kahoot!",
+      "slug": "kahoot",
+      "status": "IPO",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2013,
+      "partnered": 2015,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Johan Brand",
+        "Jamie Brooker",
+        "Morten Versvik"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Katana",
+      "slug": "katana",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Estonia"
+      ],
+      "founded": 2017,
+      "partnered": 2022,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Hannes Kert",
+        "Kristjan Vilosius",
+        "Priit Kaasik"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Klang",
+      "slug": "klang",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2013,
+      "partnered": 2018,
+      "partner": "No",
+      "founders": [
+        "Ivar Emilsson",
+        "Mundi Vondi",
+        "Oddur Snær Magnússon"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Klarna",
+      "slug": "klarna",
+      "status": "IPO",
+      "stage": "Series B",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2005,
+      "partnered": 2015,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Sebastian Siemiatkowski"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Kota",
+      "slug": "kota",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Ireland"
+      ],
+      "founded": 2022,
+      "partnered": 2022,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Luke Mackey",
+        "Patrick O’Boyle",
+        "Deepak Baliga"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Kriya",
+      "slug": "kriya",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2010,
+      "partnered": 2014,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Anil Stocker",
+        "Charles Delingpole",
+        "Ilya Kondrashov"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Labster",
+      "slug": "labster",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Denmark"
+      ],
+      "founded": 2011,
+      "partnered": 2017,
+      "partner": "No",
+      "founders": [
+        "Mads Tvillinggaard Bonde",
+        "Michael Bodekaer"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Lastminute.com",
+      "slug": "lastminute-com",
+      "status": "IPO",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 1998,
+      "partnered": 1998,
+      "partner": "No",
+      "founders": [
+        "Brent Hoberman",
+        "Martha Fox"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Livepeer",
+      "slug": "livepeer",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2017,
+      "partnered": 2019,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Doug Petkanics",
+        "Eric Tang"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "LogicStar",
+      "slug": "logicstar",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Switzerland"
+      ],
+      "founded": 2024,
+      "partnered": 2025,
+      "partner": "Dominik Esen Michiel",
+      "founders": [
+        "Boris Paskalev",
+        "Mark Müller",
+        "Martin Vechev",
+        "Veselin Raychev"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Lorum",
+      "slug": "lorum",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Arab Emirates"
+      ],
+      "founded": 2023,
+      "partnered": 2025,
+      "partner": "Sanjot Malhi Naseem",
+      "founders": [
+        "George Davis",
+        "James Smith"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Magic Labs",
+      "slug": "magic-labs",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2018,
+      "partnered": 2020,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Sean Li"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Mamut",
+      "slug": "mamut",
+      "status": "IPO",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 1994,
+      "partnered": 1998,
+      "partner": "No",
+      "founders": [
+        "Eilert G Hanoa"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Masmovil",
+      "slug": "masmovil",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "founded": 2006,
+      "partnered": 2007,
+      "partner": "No",
+      "founders": [
+        "Meinrad Spenger",
+        "Christian Nyborg"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Matsmart",
+      "slug": "matsmart",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2014,
+      "partnered": 2015,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Karl Andersson",
+        "Ulf Skagerström"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Medwing",
+      "slug": "medwing",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2017,
+      "partnered": 2019,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Johannes Roggendorf",
+        "Timo Fischer"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "MicroAGI",
+      "slug": "microagi",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "AI"
+      ],
+      "countries": [
+        "Switzerland",
+        "Türkiye",
+        "Germany",
+        "United Kingdom"
+      ],
+      "founded": 2025,
+      "partnered": 2026,
+      "partner": "Michiel Kotting Naseem",
+      "founders": [
+        "Bercan Kilic",
+        "Yoan Iliev",
+        "Anton Poletaev",
+        "Nico Nußbaum",
+        "Artjem Weissbeck"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Microverse",
+      "slug": "microverse",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "founded": 2017,
+      "partnered": 2021,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Ariel Camus"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Mimo",
+      "slug": "mimo",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2023,
+      "partnered": 2024,
+      "partner": "Dominik Esen Jessica",
+      "founders": [
+        "Henrik Grim",
+        "Andreas Meisingseth",
+        "Alexander Gernandt Segerby"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Monumental",
+      "slug": "monumental",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Netherlands"
+      ],
+      "founded": 2021,
+      "partnered": 2023,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Salar al Khafaji",
+        "Sebastiaan Visser"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Murphy",
+      "slug": "murphy",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech",
+        "AI"
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "founded": 2024,
+      "partnered": 2025,
+      "partner": "Pascual Cortes-Monroy Naseem",
+      "founders": [
+        "Borja Solé Fauria",
+        "Marc Sanchez"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "NA-KD",
+      "slug": "na-kd",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2015,
+      "partnered": 2017,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Jarno Vanhatapio"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Napatech",
+      "slug": "napatech",
+      "status": "IPO",
+      "stage": "Seed",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "Denmark"
+      ],
+      "founded": 2003,
+      "partnered": 2004,
+      "partner": "No",
+      "founders": [
+        "Jens Christophersen",
+        "Thomas Jørgensen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Nested",
+      "slug": "nested",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2016,
+      "partnered": 2018,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Phil Cowans",
+        "Matt Robinson",
+        "James Turford"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "NextGenTel",
+      "slug": "nextgentel",
+      "status": "IPO",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2000,
+      "partnered": 2000,
+      "partner": "No",
+      "founders": [
+        "Olav Stokke"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Nimsoft",
+      "slug": "nimsoft",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2002,
+      "partnered": 2006,
+      "partner": "No",
+      "founders": [
+        "Gary Read"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Nirvana",
+      "slug": "nirvana",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Healthcare",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2019,
+      "partnered": 2022,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Akshay Venkitasubramanian",
+        "Urvish Parikh",
+        "Kelvin Chan"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Nivoda",
+      "slug": "nivoda",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2017,
+      "partnered": 2024,
+      "partner": "Alex Agureev Sanjot",
+      "founders": [
+        "Dave Sutton",
+        "Andre Woons"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Noda",
+      "slug": "noda",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2018,
+      "partnered": 2020,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "William Cowell de Gruchy"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "OpenFX",
+      "slug": "openfx",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2024,
+      "partnered": 2026,
+      "partner": "Sanjot Malhi Alex",
+      "founders": [
+        "Prabhakar Reddy"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "OpenZeppelin",
+      "slug": "openzeppelin",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2015,
+      "partnered": 2018,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Demian Brener"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Outfittery",
+      "slug": "outfittery",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2012,
+      "partnered": 2015,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Julia Bösch"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Personio",
+      "slug": "personio",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2015,
+      "partnered": 2017,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Hanno Renner",
+        "Roman Schumacher",
+        "Arseniy Vershinin",
+        "Ignaz Forstmeier"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Predoc",
+      "slug": "predoc",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Healthcare",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2020,
+      "partnered": 2023,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Nishant Hari",
+        "Alex Daniels",
+        "Dr. Kaushal Kulkarni",
+        "Dr. Priya Mehta."
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Previous Next Featured Spotify",
+      "slug": "",
+      "status": "IPO",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden",
+        "United States"
+      ]
+    },
+    {
+      "name": "PriceRunner",
+      "slug": "pricerunner",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 1999,
+      "partnered": 2003,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Kristofer Arwin",
+        "Magnus Wiberg",
+        "Magnus Wiberg"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Qt",
+      "slug": "qt",
+      "status": "IPO",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 1994,
+      "partnered": 2000,
+      "partner": "No",
+      "founders": [
+        "Eirik Chambe-Eng",
+        "Haavard Nord"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Ravio",
+      "slug": "ravio",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2021,
+      "partnered": 2022,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Merten Wulfert",
+        "Roy Blanga",
+        "Raymond Siems"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Rayon",
+      "slug": "rayon",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "France"
+      ],
+      "founded": 2021,
+      "partnered": 2023,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Bastien Dolla",
+        "Stanislas Chaillou"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Recall Labs",
+      "slug": "recall-labs",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2018,
+      "partnered": 2019,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Danny Zuckerman",
+        "Michael Sena",
+        "Joel Thorstensson"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Red Points",
+      "slug": "red-points",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "founded": 2011,
+      "partnered": 2018,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Laura Urquizu"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Reonic",
+      "slug": "reonic",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Climate & Energy",
+        "AI"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2023,
+      "partnered": 2024,
+      "partner": "Jessica Schultz Against",
+      "founders": [
+        "Tristan Menzinger",
+        "Manuel Schneider and Udo Sill"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Riff",
+      "slug": "riff",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2022,
+      "partnered": 2025,
+      "partner": "Alessandro De Benedetti",
+      "founders": [
+        "Trygve Karper",
+        "Martin Røed",
+        "Viral Shah"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Safello",
+      "slug": "safello",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2013,
+      "partnered": 2014,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Frank Schuil",
+        "Ludvig Öberg"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "SalesAPE",
+      "slug": "salesape",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2023,
+      "partnered": 2024,
+      "partner": "Pascual Cortes-Monroy Jeppe",
+      "founders": [
+        "Alister Rollins"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Seamflow",
+      "slug": "seamflow",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2024,
+      "partnered": 2025,
+      "partner": "Jeppe Zink Dominik",
+      "founders": [
+        "Konstantin Klingler",
+        "Yusufhan Kircova"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "SellersFi",
+      "slug": "sellersfi",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2017,
+      "partnered": 2021,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Alessandro Rodrigues Novaes",
+        "Fabio D. Knijnik",
+        "Ricardo Pero"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Seriously",
+      "slug": "seriously",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Finland"
+      ],
+      "founded": 2013,
+      "partnered": 2015,
+      "partner": "No",
+      "founders": [
+        "Andrew Stalbow"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "SolveAI",
+      "slug": "solveai",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2025,
+      "partnered": 2025,
+      "partner": "Michiel Kotting Naseem",
+      "founders": [
+        "Steve Basher"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Solvimon",
+      "slug": "solvimon",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Netherlands"
+      ],
+      "founded": 2022,
+      "partnered": 2023,
+      "partner": "Dominik Esen Michiel",
+      "founders": [
+        "Kim Verkooij",
+        "Etienne Gerts"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Sona",
+      "slug": "sona",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2021,
+      "partnered": 2024,
+      "partner": "Dominik Esen Jeppe",
+      "founders": [
+        "Steffen Wulff Petersen",
+        "Oli Johnson and Ben Dixon"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Soundtrack Your Brand",
+      "slug": "soundtrack-your-brand",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2013,
+      "partnered": 2013,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Andreas Liffgarden",
+        "Joel Broms Brosjö",
+        "Ola Sars"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Sourcepoint",
+      "slug": "sourcepoint",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2015,
+      "partnered": 2017,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Ben Barokas",
+        "Brian Kane"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Soveren",
+      "slug": "soveren",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Andrew Zhulin",
+        "Dmitry Zhulin",
+        "Peter Fedchenkov"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "SpaceApe",
+      "slug": "spaceape",
+      "status": "Acquired",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2012,
+      "partnered": 2013,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "John Earner",
+        "Simon Hade"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Spacemaker",
+      "slug": "spacemaker",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2016,
+      "partnered": 2019,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Anders Kvale",
+        "Carl Christensen",
+        "Håvard Haukeland"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Spektr",
+      "slug": "spektr",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "Denmark"
+      ],
+      "founded": 2023,
+      "partnered": 2024,
+      "partner": "Dominik Esen Jeppe",
+      "founders": [
+        "Mikkel Skarnager",
+        "Cip Florescu"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Spotify",
+      "slug": "spotify",
+      "status": "IPO",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden",
+        "United States"
+      ],
+      "founded": 2006,
+      "partnered": 2008,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Daniel Ek",
+        "Martin Lorentzon"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Spring Health",
+      "slug": "spring-health",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2016,
+      "partnered": 2020,
+      "partner": "Pär-Jörgen Pärson Wendy",
+      "founders": [
+        "Adam Chekroud",
+        "April Koh"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "StepStone",
+      "slug": "stepstone",
+      "status": "IPO",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 1996,
+      "partnered": 1997,
+      "partner": "No",
+      "founders": [
+        "Walter De Brouwer"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Sticky",
+      "slug": "sticky",
+      "status": "Acquired",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2009,
+      "partnered": 2012,
+      "partner": "No",
+      "founders": [
+        "Mathias Plank"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Stockeld Dreamery",
+      "slug": "stockeld-dreamery",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2019,
+      "partnered": 2020,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Sorosh Tavakoli",
+        "Anja Leissner"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Stonly",
+      "slug": "stonly",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "France"
+      ],
+      "founded": 2019,
+      "partnered": 2022,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Alexis Fogel",
+        "Kris Dabrowski"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Stream",
+      "slug": "stream",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2018,
+      "partnered": 2019,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Peter Briffett",
+        "Portman Wills"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Sunscreen",
+      "slug": "sunscreen",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2021,
+      "partnered": 2022,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Ravital Solomon",
+        "MacLane Wilkison"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Supponor",
+      "slug": "supponor",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2001,
+      "partnered": 2008,
+      "partner": "No",
+      "founders": [
+        "Erkki Rantalainen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Tana",
+      "slug": "tana",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer",
+        "AI"
+      ],
+      "countries": [
+        "Norway"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Tarjei Vassbotn",
+        "Olav Kriken",
+        "Grim Iversen"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Tandem Health",
+      "slug": "tandem-health",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Healthcare",
+        "AI"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2023,
+      "partnered": 2021,
+      "partner": "Pär-Jörgen Pärson Dominik",
+      "founders": [
+        "Lukas Saari",
+        "Oliver Åstrand",
+        "and Oscar Boldt-Christmas"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Thirty Madison",
+      "slug": "thirty-madison",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2017,
+      "partnered": 2018,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Demetri Karagas",
+        "Steven Gutentag"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "TIER",
+      "slug": "tier",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "founded": 2018,
+      "partnered": 2018,
+      "partner": "Michiel Kotting Against",
+      "founders": [
+        "Julian Blessin",
+        "Lawrence Leuschner",
+        "Matthias Laug"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Tobii",
+      "slug": "tobii",
+      "status": "IPO",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2001,
+      "partnered": 2009,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Henrik Eskilsson",
+        "John Elvesjo",
+        "Marten Skogo"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Topline Pro",
+      "slug": "topline-pro",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2020,
+      "partnered": 2025,
+      "partner": "Molly Alter Against",
+      "founders": [
+        "Nick Ornitz",
+        "Shannon Kay"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Troop",
+      "slug": "troop",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "founded": 2021,
+      "partnered": 2022,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Felix Tabary",
+        "Seb Jarquin",
+        "Zen Yui"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "TrueLayer",
+      "slug": "truelayer",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2016,
+      "partnered": 2018,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Francesco Simoneschi",
+        "Luca Martinetti"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Trustpilot",
+      "slug": "trustpilot",
+      "status": "IPO",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "Denmark"
+      ],
+      "founded": 2007,
+      "partnered": 2012,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Peter Holten Mühlmann"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Tuza",
+      "slug": "tuza",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2023,
+      "partnered": 2023,
+      "partner": "Pascual Cortes-Monroy Jeppe",
+      "founders": [
+        "Olivia Stannah",
+        "Ed Hardy"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Unobravo",
+      "slug": "unobravo",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Healthcare"
+      ],
+      "countries": [
+        "Italy"
+      ],
+      "founded": 2019,
+      "partnered": 2023,
+      "partner": "Pascual Cortes-Monroy Michiel",
+      "founders": [
+        "Danila De Stefano"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Videoplaza",
+      "slug": "videoplaza",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Enterprise"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2007,
+      "partnered": 2010,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Alfred Ruth",
+        "Dante Buhay",
+        "Sorosh Tavakoli"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Wallapop",
+      "slug": "wallapop",
+      "status": "Active",
+      "stage": "Series A",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "Spain"
+      ],
+      "founded": 2013,
+      "partnered": 2015,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Miguel Vicente",
+        "Gerard Olivé",
+        "Agustin Gomez"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Xbow",
+      "slug": "xbow",
+      "status": "Active",
+      "stage": "Growth",
+      "industries": [
+        "Enterprise",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom",
+        "United States"
+      ],
+      "founded": 2024,
+      "partnered": 2026,
+      "partner": "Sanjot Malhi Manavi",
+      "founders": [
+        "Oege de Moor"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Yonder",
+      "slug": "yonder",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Fintech",
+        "AI"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Harry Jell",
+        "Theso Jivajirajah",
+        "Tim Chong"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Yope",
+      "slug": "yope",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Consumer"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2022,
+      "partnered": 2026,
+      "partner": "Pär-Jörgen Pärson Naseem",
+      "founders": [
+        "Bahram Ismailau",
+        "Paul Rudkouski"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Zeal",
+      "slug": "zeal",
+      "status": "Active",
+      "stage": "Seed",
+      "industries": [
+        "Infra & DevTools"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2020,
+      "partnered": 2021,
+      "partner": "Wendy Xiao Against",
+      "founders": [
+        "Hannes Graah"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Zervant",
+      "slug": "zervant",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Finland"
+      ],
+      "founded": 2009,
+      "partnered": 2016,
+      "partner": "No",
+      "founders": [
+        "Tuukka Koskinen",
+        "Mattias Hansson"
+      ],
+      "unicorn": false
+    },
+    {
+      "name": "Zettle",
+      "slug": "zettle",
+      "status": "Acquired",
+      "stage": "Series A",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "Sweden"
+      ],
+      "founded": 2010,
+      "partnered": 2012,
+      "partner": "Pär-Jörgen Pärson Against",
+      "founders": [
+        "Jacob De Geer",
+        "Magnus Nilsson"
+      ],
+      "unicorn": true
+    },
+    {
+      "name": "Zopa",
+      "slug": "zopa",
+      "status": "Active",
+      "stage": "Series B",
+      "industries": [
+        "Fintech"
+      ],
+      "countries": [
+        "United Kingdom"
+      ],
+      "founded": 2005,
+      "partnered": 2017,
+      "partner": "Jeppe Zink Against",
+      "founders": [
+        "Tim Parlett",
+        "Giles Andrews",
+        "James Alexander",
+        "Richard Duvall",
+        "David Nicholson"
+      ],
+      "unicorn": true
+    }
+  ],
+  "detail_synced_at": "2026-08-24T11:32:46.025Z"
+}

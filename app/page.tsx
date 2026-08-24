@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getSupabaseAdmin } from "@/lib/supabase";
+import { loadCompanies as storeLoadCompanies } from "@/lib/store";
 import type { Company } from "@/lib/types";
 import CompaniesTable from "./CompaniesTable";
 
@@ -7,14 +7,13 @@ export const dynamic = "force-dynamic";
 
 async function loadCompanies(): Promise<{ companies: Company[]; error: string | null }> {
   try {
-    const sb = getSupabaseAdmin();
-    const { data, error } = await sb
-      .from("companies")
-      .select("*")
-      .order("thesis_fit_score", { ascending: false, nullsFirst: false })
-      .order("source_published_at", { ascending: false, nullsFirst: false });
-    if (error) return { companies: [], error: error.message };
-    return { companies: (data ?? []) as Company[], error: null };
+    const rows = await storeLoadCompanies();
+    rows.sort(
+      (a, b) =>
+        (b.thesis_fit_score ?? -1) - (a.thesis_fit_score ?? -1) ||
+        Date.parse(b.source_published_at ?? "0") - Date.parse(a.source_published_at ?? "0"),
+    );
+    return { companies: rows, error: null };
   } catch (e) {
     return { companies: [], error: (e as Error).message };
   }
@@ -30,12 +29,14 @@ export default async function Home() {
         <nav className="mb-3 flex gap-4 text-sm">
           <span className="font-medium text-zinc-900">Deal Flow</span>
           <Link href="/candidates" className="text-zinc-500 hover:text-zinc-900">Talent Radar</Link>
+          <Link href="/formations" className="text-zinc-500 hover:text-zinc-900">Formations</Link>
+          <Link href="/sources" className="text-zinc-500 hover:text-zinc-900">Sources</Link>
         </nav>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">ANZ AI Radar</h1>
+            <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">London AI Radar</h1>
             <p className="mt-1 text-sm text-zinc-500">
-              ANZ startup raises, aggregated from the news feeds and scored against Airtree&apos;s AI durability thesis.
+              UK startup deal flow, aggregated from ~70 sources and scored against Northzone&apos;s AI durability thesis.
             </p>
           </div>
           <div className="text-right text-xs text-zinc-500">
@@ -48,7 +49,7 @@ export default async function Home() {
       {error ? (
         <div className="mx-auto max-w-2xl">
           <p className="text-sm text-zinc-500">Couldn&apos;t load companies. Apply the schema and run the pipeline:</p>
-          <pre className="mt-3 rounded-lg bg-zinc-900 p-4 text-xs text-zinc-100">{`npm run deals   # pull + score this week's ANZ raises`}</pre>
+          <pre className="mt-3 rounded-lg bg-zinc-900 p-4 text-xs text-zinc-100">{`npm run deals   # pull + score this week's UK raises`}</pre>
           <p className="mt-3 text-xs text-red-600">{error}</p>
         </div>
       ) : companies.length === 0 ? (
